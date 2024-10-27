@@ -10,16 +10,6 @@ public class AlphabetWarGame {
     // Constructor with default strengths
     public AlphabetWarGame() {}
 
-    // Constructor with custom strengths
-    public AlphabetWarGame(int[] leftStrengths, int[] rightStrengths) {
-        this.leftStrengths = leftStrengths;
-        this.rightStrengths = rightStrengths;
-    }
-
-    // Method to determine winner with one word
-    public String alphabetWar(String word) {
-        return alphabetWar(word, "");
-    }
 
     // Method to determine winner with two words
     public String alphabetWar(String leftWord, String rightWord) {
@@ -54,10 +44,17 @@ public class AlphabetWarGame {
     }
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         AlphabetWarGame game = new AlphabetWarGame();
 
-        System.out.println(game.alphabetWar("z")); // Right side wins!
-        System.out.println(game.alphabetWar("zdqmwpbs")); // Let's fight again!
-        System.out.println(game.alphabetWar("wwwwwwz")); // Left side wins!
+
+        // Input for a two-word battle (left vs right)
+        System.out.print("Enter the word for the left side: ");
+        String leftWord = scanner.nextLine();
+        System.out.print("Enter the word for the right side: ");
+        String rightWord = scanner.nextLine();
+        System.out.println(game.alphabetWar(leftWord, rightWord)); // Two-word battle
+
+        scanner.close();
     }
 }
